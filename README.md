@@ -11,7 +11,6 @@ All work was performed on server
 * https://github.com/imgag/ClinCNV - ClinCNV
 
 ### Files description
-**/software/ClinCNV/** - *folder with setup files for ClinCNV*
 
 **/clincnv/Snakefile** - *ClinCNV's executable file for Snakemake. To run, simply type snakemake in terminal in project directory*
 
