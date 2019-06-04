@@ -3,7 +3,7 @@ Although array comparative genomic hybridization (aCGH) is currently established
 Here we have two pipelines CNVkit and ClinCNV using snakemake for detecting unknown variants of CNVs in patients. Pipelines were performed under the leadership of the researchers of Laboratory of Molecular Biology and Genetics of Federal Almazov Medical Research Center.
 
 ### Goal of project
-Detecting of CNVs in patients with different types of idiopathic cardiomyopathies
+Detection of CNVs in patients with different types of idiopathic cardiomyopathies
 
 ### Methods
 All work was performed on server
