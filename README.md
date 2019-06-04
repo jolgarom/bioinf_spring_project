@@ -15,7 +15,7 @@ All work was performed on server
 
 **/clincnv/Snakefile** - *ClinCNV's executable file for Snakemake. To run, simply type snakemake in terminal in project directory*
 
-**/clincnv/Comfig.yaml** - *ClinCNV's configuration file for Snakemake*
+**/clincnv/config.yaml** - *ClinCNV's configuration file for Snakemake*
 
 **/clincnv/prepare_reference.sh** - *.sh file to prepare a BED file of reference for use with ClinCNV*
 
@@ -26,7 +26,7 @@ All work was performed on server
 
 **/cnvkit/Snakefile** - *CNVkit's executable file for Snakemake. To run, simply type snakemake in terminal in project directory*
 
-**/cnvkit/Comfig.yaml** - *CNVkit's configuration file for Snakemake*
+**/cnvkit/config.yaml** - *CNVkit's configuration file for Snakemake*
 
 **/cnvkit/1_make_target_bed.sh** - *.sh file to prepare a BED file of target regions for use with CNVkit*
 
