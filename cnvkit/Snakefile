@@ -1,0 +1,46 @@
+configfile: "config.yaml"
+
+
+#import python library
+import os
+
+
+#path to dir
+#work_dir = os.getcwd() + '/'
+bam_file_path = config["bam_file"]["path"]
+#data = work_dir + "data/"
+#analysis = work_dir + "analysis/"
+#results = work_dir + "results/"
+
+
+#for samples
+samples, = glob_wildcards(bam_file_path+"/{sample}.bam")
+
+
+rule all:
+    input:
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/ExomesData/{sample}.bam', sample=samples),
+        '/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/references/my_targets.bed',
+        '/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/references/my_antitargets.bed',
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/analysis/{sample}.targetcoverage.cnn', sample=samples),
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/analysis/{sample}.antitargetcoverage.cnn', sample=samples),
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/analysis/{sample}.reference.cnn', sample=samples),
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/analysis/{sample}.cnr', sample=samples),
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/analysis/{sample}.cns', sample=samples),
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/results/{sample}_scatter.png', sample=samples),
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/results/{sample}_heatmap.png', sample=samples),
+        #expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/results/{sample}_diagram.png', sample=samples),
+
+
+##### Modules #####
+
+include: "rules/3_target_coverage.smk"
+include: "rules/4_antitarget_coverage.smk"
+include: "rules/5_make_a_reference.smk"
+include: "rules/6_from_cnn_to_cnr.smk"
+include: "rules/7_from_cnr_to_cns.smk"
+include: "rules/8_make_a_scatter.smk"
+include: "rules/9_make_a_heatmap.smk"
+#include: "rules/10_make_a_diagram.smk"
+
+

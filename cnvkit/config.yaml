@@ -1,0 +1,10 @@
+#path to reference
+genome: /mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/references/human_g1k_v37.fasta
+
+#path to bam files
+bam_file: 
+ path: /mnt/IMBG-NGS-Analysys/StudentsWork/ExomesData
+
+#path to script
+cnvkit: /home/romanova_ov/anaconda3/pkgs/cnvkit-0.9.6a0-py36_2/bin/cnvkit.py
+
