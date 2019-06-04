@@ -1,0 +1,38 @@
+configfile: "config.yaml"
+
+
+#import python library
+import os
+
+
+#path to dir
+#work_dir = os.getcwd() + '/'
+bam_file_path = config["bam_file"]["path"]
+#data = work_dir + "data/"
+#analysis = work_dir + "analysis/"
+#results = work_dir + "results/"
+
+
+#for samples
+samples, = glob_wildcards(bam_file_path+"/{sample}.bam")
+
+
+rule all:
+    input:
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/ExomesData/{sample}.bam', sample=samples),
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/analysis/ontarget/{sample}.ontarget.cov', sample=samples),
+        expand('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/analysis/offtarget/{sample}.offtarget.cov', sample=samples),
+        '/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/ClinCNVRef_AKis/AgilentExomeV6Design_S07604514_Covered.offtarget.chunk.shrink25K.gcannotated.extended400.bed',
+        '/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/ClinCNVRef_AKis/AgilentExomeV6Design_S07604514_Covered.bed',
+        '/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/analysis/mergedontarget.cov',
+        '/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/analysis/mergedofftarget.cov',
+        directory('/mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/results/clincnv/'),
+
+
+##### Modules #####
+
+include: "rules/10_BedCoverage.smk"
+include: "rules/11_MergeFiles.smk"
+include: "rules/12_StartClinCNV.smk"
+
+

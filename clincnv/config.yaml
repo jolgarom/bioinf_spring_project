@@ -1,0 +1,7 @@
+#path to reference
+genome: /mnt/IMBG-NGS-Analysys/StudentsWork/romanova_ov/references/human_g1k_v37.fasta
+
+#path to bam files
+bam_file: 
+ path: /mnt/IMBG-NGS-Analysys/StudentsWork/ExomesData
+
